@@ -1,15 +1,15 @@
 'use client';
 
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { stat } from 'fs';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import ErrorMessage from '../components/forms/ErrorMessage';
 import LoginForm from '../components/forms/LoginForm';
 import { useAuthStore } from '../stores/useAuthStore';
 
 export default function page() {
-  // const router = useRouter();
+  const router = useRouter();
   const { login } = useAuthStore(state => state);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | undefined>(undefined);
@@ -17,15 +17,17 @@ export default function page() {
   const handleLogin = async (formData: FormData) => {
     const email = formData.get('email') as string;
     const password = formData.get('password') as string;
-    console.log({ email, password });
+    // console.log({ email, password });
     setLoading(true);
     // Device name
     // const deviceName = navigator.userAgent;
     const deviceName = 'local host';
     try {
       await login(email, password, deviceName);
+      router.push('/dashboard');
     } catch (err: any) {
-      if (err.status === 401) {
+      // console.error(' handleLogin ~ err:', err);
+      if (err instanceof AxiosError && err.response?.status === 401) {
         setErrorMessage(err.response.data);
       }
     } finally {
@@ -46,10 +48,3 @@ export default function page() {
     </>
   );
 }
-
-// {loading && (
-//   <div className="mb-4 flex justify-center">
-//     <span className="text-indigo-600 font-semibold">Loading...</span>
-//     {/* Replace with a spinner if you have one */}
-//   </div>
-// )}

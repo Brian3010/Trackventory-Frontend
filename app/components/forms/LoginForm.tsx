@@ -34,12 +34,10 @@ export default function LoginForm({ handleLogin, isLoading, errorMessage, setErr
   };
 
   useEffect(() => {
-    const email = watch('email');
-    const password = watch('password');
-    if (email === '' || password === '') {
+    if (errorMessage) {
       setErrorMessage(undefined);
     }
-  }, [watch('email'), watch('password'), setErrorMessage]);
+  }, [watch('email'), watch('password')]);
 
   return (
     <>
@@ -87,17 +85,9 @@ export default function LoginForm({ handleLogin, isLoading, errorMessage, setErr
                 } block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6`}
               />
               {errors.password && <ErrorMessage message={errors.password.message} />}
-              {errorMessage && !errors.password && <ErrorMessage message={errorMessage} />}
+              {errorMessage && <ErrorMessage message={errorMessage} />}
             </div>
           </div>
-
-          {/* <div
-            className="text-sm text-red-800 rounded-lg dark:text-red-500"
-            role="alert"
-            aria-labelledby="hs-soft-color-danger-label"
-          >
-            {errorMessage}
-          </div> */}
 
           <div>
             <button
