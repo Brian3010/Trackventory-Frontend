@@ -9,17 +9,18 @@ export default function AuthTokenProvider() {
   console.log('AuthToken rendered');
   const { refreshToken } = useAuthStore();
   const [value] = useLocalStorage('user', '');
+
   const router = useRouter();
 
   useEffect(() => {
-    console.log('useEffect in AuthToken runned');
+    // console.log('useEffect in AuthToken runned');
     // get actual deviceName/deviceId later
     // for now, it's hard coded
     const deviceId = 'local host';
 
     // Check if user exists in localStorage
     if (!value?.state?.context) {
-      console.log('returning to /login as user not found in storage');
+      // console.log('returning to /login as user not found in storage');
       return router.push('/login');
     }
 

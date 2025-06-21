@@ -57,7 +57,7 @@ export const useAuthStore = create<AuthStore>()(
       },
 
       refreshToken: async (userId, deviceId) => {
-        console.log(' refreshToken: ~ userId, deviceId:', userId, deviceId);
+        // console.log(' refreshToken: ~ userId, deviceId:', userId, deviceId);
         try {
           set({ isLoading: true });
 
