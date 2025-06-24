@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
 export default function AuthTokenProvider() {
-  console.log('AuthToken rendered');
+  console.log('AuthTokenProvider rendered');
   const { refreshToken } = useAuthStore();
   const [value] = useLocalStorage('user', '');
 
