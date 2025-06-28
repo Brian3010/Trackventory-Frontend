@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import AuthTokenProvider from './components/AuthTokenProvider';
 import Footer from './components/Footer';
 import Header from './components/Header';
+import MainContainer from './components/MainContainer';
 import SideBar from './components/SideBar';
 import './globals.css';
 
@@ -32,13 +33,16 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} font-sans antialiased`}>
         <AuthTokenProvider />
-
         <div className="flex h-screen">
           <SideBar />
           <main className="flex-1 overflow-auto ">
-            <Header />
-            {children}
-            <Footer />
+            <div className="min-h-screen flex flex-col">
+              <Header />
+              <div className="p-8 flex-1">
+                <MainContainer className="" children={children} />
+              </div>
+              <Footer />
+            </div>
           </main>
         </div>
       </body>

@@ -4,7 +4,7 @@ import React, { use, useEffect } from 'react';
 import useLocalStorage from '../hooks/useLocalStorage';
 import { useAuthStore } from '../stores/useAuthStore';
 
-export default function page() {
+export default function Dashboard() {
   console.log('dashboard render');
   const { isAuthenticated, isLoading } = useAuthStore();
   if (isLoading) return null; // or return <Loading />
@@ -13,7 +13,12 @@ export default function page() {
     isAuthenticated && (
       <div>
         <h2>Protected Dashboard</h2>
-        <p>This content is only for authenticated users.</p>
+        <ul>
+          <li>Todo:</li>
+          <li>Inventory Summary Cards</li>
+          <li>Low Stock Items Table</li>
+          <li>Top 5 most used / sold items</li>
+        </ul>
       </div>
     )
   );

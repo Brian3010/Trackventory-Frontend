@@ -8,7 +8,7 @@ import ErrorMessage from '../components/forms/ErrorMessage';
 import LoginForm from '../components/forms/LoginForm';
 import { useAuthStore } from '../stores/useAuthStore';
 
-export default function page() {
+export default function Login() {
   const router = useRouter();
   const { login } = useAuthStore(state => state);
   const [loading, setLoading] = useState(false);
