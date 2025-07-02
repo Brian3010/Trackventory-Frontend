@@ -36,6 +36,8 @@ export default function AuthTokenProvider() {
     };
 
     refresh();
+
+    return router.push('/dashboard');
   }, [value]);
 
   return null;
