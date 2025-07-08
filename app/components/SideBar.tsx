@@ -34,7 +34,7 @@ export default function SideBar() {
             ]}
             itemName={['Dashboard', 'Inventory', 'Users']}
             open={openSideBar}
-            route={['/dashboard', 'inventory', 'manage-user']}
+            route={['/dashboard', '/inventory', '/manage-user']}
           />
         </ul>
       </nav>
