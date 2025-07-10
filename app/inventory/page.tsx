@@ -18,10 +18,9 @@ export default function Inventory() {
   if (isLoading) return <div>Loading...</div>;
 
   if (!data) return <div>Cannot retrieve data</div>;
-  //TODO: think of way to display categories (might use grid??)
   return (
     <div className="">
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {data.map((item, idx) => (
           <CategoryItems item={item} key={idx} />
         ))}

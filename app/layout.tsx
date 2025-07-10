@@ -38,7 +38,7 @@ export default function RootLayout({
           <main className="flex-1 overflow-auto ">
             <div className="min-h-screen flex flex-col">
               <Header />
-              <div className="p-8 flex-1">
+              <div className="flex-1 w-full max-w-screen-2xl mx-auto p-8">
                 <MainContainer className="" children={children} />
               </div>
               <Footer />
