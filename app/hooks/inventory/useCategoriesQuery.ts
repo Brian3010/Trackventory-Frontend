@@ -1,4 +1,4 @@
-import { Category } from '@/app/types/inventory';
+import { Category } from '@/app/types/category';
 import axiosNet from '@/app/utils/axiosNet';
 import { useQuery } from '@tanstack/react-query';
 

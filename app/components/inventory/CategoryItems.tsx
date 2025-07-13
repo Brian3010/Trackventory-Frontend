@@ -1,4 +1,4 @@
-import { Category } from '@/app/types/inventory';
+import { Category } from '@/app/types/category';
 import { History, ShoppingBagIcon, SquarePen } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import React from 'react';
@@ -19,11 +19,11 @@ export default function CategoryItems({ item }: CategoryItemsProps) {
           <div className="flex gap-4 flex-1">
             <div
               className="[&>svg]:w-6 [&>svg]:h-6 aspect-square p-2 "
-              dangerouslySetInnerHTML={{ __html: item.iconMarkUp }}
+              dangerouslySetInnerHTML={{ __html: item.iconMarkUpHTML }}
             />
             <div>
               <p className="font-semibold">{item.name}</p>
-              <p className="text-sm text-gray-600">90 items</p>
+              <p className="text-sm text-gray-600">{item.totalItems} items</p>
             </div>
           </div>
           <div className="flex gap-3">
@@ -35,7 +35,17 @@ export default function CategoryItems({ item }: CategoryItemsProps) {
             </button>
           </div>
         </div>
-        <p className="text-sm font-semibold text-gray-500 mt-2 ">Last Updated: 10/07/2025</p>
+        <p className="text-sm font-semibold text-gray-500 mt-2 ">
+          Last Updated:{' '}
+          {new Date(item.lastUpdated).toLocaleString('en-US', {
+            hour: '2-digit',
+            minute: '2-digit',
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour12: true, // ensures AM/PM
+          })}
+        </p>
       </div>
     </>
   );
