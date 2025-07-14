@@ -36,9 +36,9 @@ export default function RootLayout({
         <div className="flex h-screen">
           <SideBar />
           <main className="flex-1 overflow-auto ">
-            <div className="min-h-screen flex flex-col">
+            <div className="flex flex-col min-h-screen">
               <Header />
-              <div className="flex-1 w-full max-w-screen-2xl mx-auto p-8">
+              <div className="flex-1 w-full p-8 mx-auto max-w-screen-2xl">
                 <MainContainer className="" children={children} />
               </div>
               <Footer />

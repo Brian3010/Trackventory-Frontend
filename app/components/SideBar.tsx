@@ -12,7 +12,7 @@ export default function SideBar() {
 
   return (
     <aside className={`transition-all duration-300 ${openSideBar ? 'w-40' : 'w-14'} flex flex-col outline-1`}>
-      <div className="p-4 flex justify-start">
+      <div className="flex justify-start p-4">
         <button onClick={() => setOpenSideBar(!openSideBar)} className="cursor-pointer">
           <Menu
             className={`h-5 w-5 transform transition-transform duration-300 ease-in-out ${
@@ -22,13 +22,13 @@ export default function SideBar() {
         </button>
       </div>
 
-      <nav className="p-4 flex-1">
+      <nav className="flex-1 p-4">
         <ul className="flex flex-col gap-6">
           <SideBarItems
             icon={[
-              <LayoutDashboard className="h-5 w-5" />,
-              <Warehouse className="h-5 w-5" />,
-              <UsersRound className="h-5 w-5" />,
+              <LayoutDashboard className="w-5 h-5" />,
+              <Warehouse className="w-5 h-5" />,
+              <UsersRound className="w-5 h-5" />,
             ]}
             itemName={['Dashboard', 'Inventory', 'Users']}
             open={openSideBar}

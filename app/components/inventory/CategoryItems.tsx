@@ -16,7 +16,7 @@ export default function CategoryItems({ item }: CategoryItemsProps) {
         onClick={() => router.push('/inventory/count')}
       >
         <div className="flex">
-          <div className="flex gap-4 flex-1">
+          <div className="flex flex-1 gap-4">
             <div
               className="[&>svg]:w-6 [&>svg]:h-6 aspect-square p-2 "
               dangerouslySetInnerHTML={{ __html: item.iconMarkUpHTML }}
@@ -35,7 +35,7 @@ export default function CategoryItems({ item }: CategoryItemsProps) {
             </button>
           </div>
         </div>
-        <p className="text-sm font-semibold text-gray-500 mt-2 ">
+        <p className="mt-2 text-sm font-semibold text-gray-500 ">
           Last Updated:{' '}
           {new Date(item.lastUpdated).toLocaleString('en-US', {
             hour: '2-digit',
