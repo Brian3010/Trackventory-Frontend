@@ -11,10 +11,7 @@ export default function CategoryItems({ item }: CategoryItemsProps) {
   const router = useRouter();
   return (
     <>
-      <div
-        className="p-4 rounded-lg shadow bg-[var(--card)] border border-gray-300 hover:shadow-md cursor-pointer"
-        onClick={() => router.push('/inventory/count')}
-      >
+      <div className="p-3 rounded-lg shadow bg-[var(--card)] border border-gray-300">
         <div className="flex">
           <div className="flex flex-1 gap-4">
             <div
@@ -26,11 +23,16 @@ export default function CategoryItems({ item }: CategoryItemsProps) {
               <p className="text-sm text-gray-600">{item.totalItems} items</p>
             </div>
           </div>
-          <div className="flex gap-3">
-            <button>
+          <div className="flex gap-4">
+            <button onClick={() => router.push('/inventory/count')} className="cursor-pointer">
               <SquarePen className="w-5 h-5" />
             </button>
-            <button>
+            <button
+              onClick={() => {
+                console.log('view history button clicked');
+              }}
+              className="cursor-pointer"
+            >
               <History className="w-5 h-5" />
             </button>
           </div>
