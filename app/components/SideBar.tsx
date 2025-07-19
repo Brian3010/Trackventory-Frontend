@@ -11,7 +11,9 @@ export default function SideBar() {
   const { openSideBar, setOpenSideBar } = useGlobalStore();
 
   return (
-    <aside className={`transition-all duration-300 ${openSideBar ? 'w-40' : 'w-14'} flex flex-col outline-1`}>
+    <aside
+      className={`hidden sm:block transition-all duration-300 ${openSideBar ? 'w-40' : 'w-14'} flex flex-col outline-1`}
+    >
       <div className="flex justify-start p-4">
         <button onClick={() => setOpenSideBar(!openSideBar)} className="cursor-pointer">
           <Menu

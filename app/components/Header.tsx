@@ -1,7 +1,14 @@
+'use client';
+
+import { Menu } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
+import { useGlobalStore } from '../stores/useGlobalStore';
+import SideBar from './SideBar';
 
 export default function Header() {
+  const { openSideBar, setOpenSideBar } = useGlobalStore();
+
   return (
     <header className="p-2 outline-1">
       <div className="flex flex-wrap items-center justify-between">

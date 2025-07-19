@@ -6,7 +6,7 @@ type SideBarItemsProps = {
   route: string[];
   icon: ReactNode[];
   itemName: string[];
-  open: boolean;
+  open?: boolean;
 };
 
 export default function SideBarItems({ route, icon, itemName, open }: SideBarItemsProps) {
